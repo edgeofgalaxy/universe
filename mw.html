@@ -16,6 +16,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Galaxy Universe</title>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1428a0">
+<link rel="apple-touch-icon" href="icon-192.png">
     <style>
         :root {
             --primary-color: #1428a0;
@@ -99,6 +102,32 @@
         }
 
         .update-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .install-button {
+            background-color: #34a853;
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .install-button:hover {
+            background-color: #2d9147;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .install-button svg {
             width: 16px;
             height: 16px;
         }
@@ -376,14 +405,12 @@
                 <h1>Galaxy Universe</h1>
                 <div class="version-info">
                     <span class="version-badge">2025 - Q2 2.0</span>
-                    <a href="https://drive.google.com/drive/folders/1jM_Gwuvqlbnrnxc_cSVQQxG2vz5bzYqP?usp=drive_link" class="update-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="17 8 12 3 7 8"/>
-                            <line x1="12" y1="3" x2="12" y2="15"/>
+                    <button id="installButton" class="install-button" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                         </svg>
-                        Aggiorna versione
-                    </a>
+                        Installa App
+                    </button>
                 </div>
                 <div class="search-container">
                     <div class="search-wrapper">
@@ -1169,6 +1196,49 @@
         const savedTheme = localStorage.getItem(THEME_KEY);
         applyTheme(savedTheme || THEME.LIGHT);
     });
+</script>
+
+<script>
+    let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Previeni il popup automatico del browser
+    e.preventDefault();
+    // Salva l'evento per usarlo dopo
+    deferredPrompt = e;
+    // Mostra il pulsante di installazione
+    const installButton = document.getElementById('installButton');
+    installButton.style.display = 'flex';
+
+    installButton.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        
+        // Mostra il prompt di installazione
+        deferredPrompt.prompt();
+        // Aspetta la scelta dell'utente
+        const { outcome } = await deferredPrompt.userChoice;
+        
+        // Reset della variabile
+        deferredPrompt = null;
+        // Nascondi il pulsante
+        installButton.style.display = 'none';
+    });
+});
+
+// Quando l'app è già installata
+window.addEventListener('appinstalled', () => {
+    // Nascondi il pulsante
+    document.getElementById('installButton').style.display = 'none';
+    // Reset della variabile
+    deferredPrompt = null;
+});
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('Service Worker registrato'))
+      .catch(e => console.warn('SW registration failed', e));
+  }
 </script>
 
 
