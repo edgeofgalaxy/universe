@@ -1,9 +1,9 @@
 {
   "name": "Galaxy Universe",
-  "short_name": "Galaxy Universe",
+  "short_name": "G-Universe",
   "description": "Catalogo prodotti Samsung Galaxy",
   "lang": "it-IT",
-  "start_url": "./GU-25 Q2 2.0.html",
+  "start_url": "./mw.html",
   "display": "standalone",
   "background_color": "#1428a0",
   "theme_color": "#1428a0",
@@ -13,3 +13,4 @@
   ]
 
 }
+
