@@ -391,15 +391,11 @@
         }
 
         .variant-details {
-            margin-top: 12px;
+            margin-top: 0;
             font-size: 0.9rem;
             display: grid;
             grid-template-rows: 0fr;
             opacity: 0;
-            transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                        opacity 0.3s ease,
-                        margin-top 0.3s ease;
-            margin-top: 0;
         }
 
         .variant-details > .variant-wrapper {
@@ -429,29 +425,7 @@
             opacity: 1;
         }
 
-        .variant-details.show .variant-item {
-            animation: slideInUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) backwards;
-        }
 
-        .variant-details.show .variant-item:nth-child(1) { animation-delay: 0.02s; }
-        .variant-details.show .variant-item:nth-child(2) { animation-delay: 0.04s; }
-        .variant-details.show .variant-item:nth-child(3) { animation-delay: 0.06s; }
-        .variant-details.show .variant-item:nth-child(4) { animation-delay: 0.08s; }
-        .variant-details.show .variant-item:nth-child(5) { animation-delay: 0.10s; }
-        .variant-details.show .variant-item:nth-child(6) { animation-delay: 0.12s; }
-        .variant-details.show .variant-item:nth-child(7) { animation-delay: 0.14s; }
-        .variant-details.show .variant-item:nth-child(8) { animation-delay: 0.16s; }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
         .variant-item:first-child {
             margin-top: 0;
@@ -1102,37 +1076,37 @@
                 { codice: '346854', descrizione: 'Lilac 256GB' }
             ]},
             // Serie S
-            { nome: 'Miracle M3', categoria: 'Serie S', varianti: [
+            { nome: 'Galaxy S26 Ultra', categoria: 'Serie S', varianti: [
                 { codice: '564017', descrizione: 'White 256GB' },
                 { codice: '564018', descrizione: 'White 512GB' },
                 { codice: '564022', descrizione: 'White 1TB' },
-                { codice: '564023', descrizione: 'Violet 256GB' },
-                { codice: '564025', descrizione: 'Violet 512GB' },
-                { codice: '564026', descrizione: 'Violet 1TB' },
-                { codice: '564027', descrizione: 'Blue 256GB' },
-                { codice: '564033', descrizione: 'Blue 512GB' },
-                { codice: '564034', descrizione: 'Blue 1TB' },
+                { codice: '564023', descrizione: 'Cobalt Violet 256GB' },
+                { codice: '564025', descrizione: 'Cobalt Violet 512GB' },
+                { codice: '564026', descrizione: 'Cobalt Violet 1TB' },
+                { codice: '564027', descrizione: 'Sky Blue 256GB' },
+                { codice: '564033', descrizione: 'Sky Blue 512GB' },
+                { codice: '564034', descrizione: 'Sky Blue 1TB' },
                 { codice: '564035', descrizione: 'Black 256GB' },
                 { codice: '564036', descrizione: 'Black 512GB' },
                 { codice: '564038', descrizione: 'Black 1TB' }
             ]},
-            { nome: 'Miracle M2', categoria: 'Serie S', varianti: [
+            { nome: 'Galaxy S26 Plus', categoria: 'Serie S', varianti: [
                 { codice: '564040', descrizione: 'White 256GB' },
                 { codice: '564041', descrizione: 'White 512GB' },
-                { codice: '564042', descrizione: 'Violet 256GB' },
-                { codice: '564043', descrizione: 'Violet 512GB' },
-                { codice: '564044', descrizione: 'Blu 256GB' },
-                { codice: '564045', descrizione: 'Blu 512GB' },
+                { codice: '564042', descrizione: 'Cobalt Violet 256GB' },
+                { codice: '564043', descrizione: 'Cobalt Violet 512GB' },
+                { codice: '564044', descrizione: 'Sky Blue 256GB' },
+                { codice: '564045', descrizione: 'Sky Blue 512GB' },
                 { codice: '564046', descrizione: 'Black 256GB' },
                 { codice: '564047', descrizione: 'Black 512GB' }
             ]},
-            { nome: 'Miracle M1', categoria: 'Serie S', varianti: [
+            { nome: 'Galaxy S26', categoria: 'Serie S', varianti: [
                 { codice: '564048', descrizione: 'White 256GB' },
                 { codice: '564050', descrizione: 'White 512GB' },
-                { codice: '564051', descrizione: 'Violet 256GB' },
-                { codice: '564052', descrizione: 'Violet 512GB' },
-                { codice: '564053', descrizione: 'Blu 256GB' },
-                { codice: '564054', descrizione: 'Blu 512GB' },
+                { codice: '564051', descrizione: 'Cobalt Violet 256GB' },
+                { codice: '564052', descrizione: 'Cobalt Violet 512GB' },
+                { codice: '564053', descrizione: 'Sky Blue 256GB' },
+                { codice: '564054', descrizione: 'Sky Blue 512GB' },
                 { codice: '564055', descrizione: 'Black 256GB' },
                 { codice: '564057', descrizione: 'Black 512GB' }
             ]},
@@ -1362,6 +1336,14 @@
                 { codice: '192102', descrizione: '47mm Black' }
             ]},
             // Buds
+            { nome: 'Galaxy Buds4Pro', categoria: 'Buds', varianti: [
+                { codice: '563442', descrizione: 'Black' },
+                { codice: '563478', descrizione: 'White' }
+            ]},
+            { nome: 'Galaxy Buds4', categoria: 'Buds', varianti: [
+                { codice: '563594', descrizione: 'Black' },
+                { codice: '563595', descrizione: 'White' }
+            ]},
             { nome: 'Galaxy Buds3FE', categoria: 'Buds', varianti: [
                 { codice: '499068', descrizione: 'Black' },
                 { codice: '499069', descrizione: 'White' }
@@ -1437,6 +1419,17 @@
                 { codice: '192348', descrizione: '5G 12+256GB' }
             ]},
             // Book
+            { nome: 'Galaxy Book6', categoria: 'Book', varianti: [
+                { codice: '564005', descrizione: 'Ultra7 512GB/16GB 14"' },
+                { codice: '564004', descrizione: 'Ultra7 512GB/16GB 16"' }
+            ]},
+            { nome: 'Galaxy Book6 Pro', categoria: 'Book', varianti: [
+                { codice: '564003', descrizione: 'Ultra7 512GB/16GB 14"' },
+                { codice: '564002', descrizione: 'Ultra7 512GB/16GB 16"' }
+            ]},
+            { nome: 'Galaxy Book6 Ultra', categoria: 'Book', varianti: [
+                { codice: '564001', descrizione: 'Ultra7 1TB/32GB 16"' }
+            ]},
             { nome: 'Galaxy Book5', categoria: 'Book', varianti: [
                 { codice: '456689', descrizione: 'Ultra7 1TB/32GB 15,6"' }
             ]},
@@ -1475,21 +1468,6 @@
                 { codice: '396390', descrizione: 'X-Elite 512GB 14"' },
                 { codice: '373248', descrizione: 'X-Elite 512GB 16"' }
             ]},
-            { nome: 'Galaxy Book3', categoria: 'Book', varianti: [
-                { codice: '316550', descrizione: 'i7 512GB 15,6"' },
-                { codice: '364470', descrizione: 'i7 1TB 15,6"' },
-                { codice: '212950', descrizione: 'i7 1TB 15,6"' }
-            ]},
-            { nome: 'Galaxy Book3 360', categoria: 'Book', varianti: [
-                { codice: '228991', descrizione: 'i5 256GB 13.3"' },
-                { codice: '305332', descrizione: 'i7 512GB 13,3"' }
-            ]},
-            { nome: 'Galaxy Book3 Pro', categoria: 'Book', varianti: [
-                { codice: '186301', descrizione: 'i7 512GB 16"' }
-            ]},
-            { nome: 'Galaxy Book3 Ultra', categoria: 'Book', varianti: [
-                { codice: '186294', descrizione: 'i7 512GB 16"' }
-            ]},
           ];
 
         const listaProdotti = document.getElementById('lista-prodotti');
@@ -1522,7 +1500,7 @@
             }
 
         let copyToastTimeout;
-        function copyPimCode(element) {
+        window.copyPimCode = function(element) {
             const code = element.dataset.code;
             
             // Copia negli appunti
